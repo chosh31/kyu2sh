@@ -43,6 +43,12 @@
                     toLocal.href = 'mailto:dev@knowre.com';
                     toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
                     Polymer.dom(this.root).appendChild(toLocal);
+                } else if (e.detail.result === 'where') {
+                    var toLocal = document.createElement('a');
+                    toLocal.href = 'http://dmaps.kr/23zbu';
+                    toLocal.target="_blank";
+                    toLocal.innerHTML = '서울 강남구 테헤란로8길 21 (우) 06234(지번) 역삼동 823-14 7층';
+                    Polymer.dom(this.root).appendChild(toLocal);
                 } else {
                     var toLocal = document.createElement('div')
                     toLocal.innerHTML = 'Error command. Sorry Try Again!';
