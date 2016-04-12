@@ -12,10 +12,18 @@
 		<script>
 			document.querySelector('console-output-element').addEventListener('fire', function (e) {
 				console.log(e.detail.result); // true
+				if(e.detail.result==='1'){
+
+				}else{
+					var toLocal = document.createElement('div')
+					toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
+					Polymer.dom(this.root).appendChild(toLocal);
+				}
 			});
 		</script>
 		<console-doc-element></console-doc-element>
 		<console-input-element></console-input-element>
+
 	</template>
 
 	<script>

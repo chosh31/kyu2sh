@@ -32,6 +32,7 @@
 				console.log('I GOT the '+cmdValue);
 
 				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
+				this.cmdValue = '';
 			},
 			properties: {
 				cmdValue: String,
