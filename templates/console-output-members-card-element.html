@@ -13,13 +13,17 @@
 			width: 23%;
 		}
 
+		:host .main-part {
+			display: inline-block;
+			height: 36px;
+		}
+
 		</style>
 		<!-- console-output-members-card-element -->
 		<div class='container'>
 			<div><img style="width: 128px; height: 128px" src={{img}}></div>
-			<div>{{name}}</div>
-			<div>{{age}}</div>
-			<div>{{mainPart}}</div>
+			<div>{{name}} / {{age}}</div>
+			<div class='main-part'>{{mainPart}}</div>
 		</div>
 	</template>
 

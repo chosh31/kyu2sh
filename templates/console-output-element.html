@@ -18,7 +18,7 @@
 			}
 
 		</style>
-		<div>Enjoy your Knowre! console-output-element</div>
+		<div>Enjoy your Knowre!</div>
 	</template>
 
 	<script>
@@ -50,7 +50,6 @@
 						var node = document.createElement('console-output-'+domName+'-element');
 						Polymer.dom(this.root).appendChild(node);
 					} else if (cmd === 'clear') {
-						console.log(this.children.length);
 						var dom  = Polymer.dom(this.root);
 						while (dom.firstChild){
 							dom.removeChild(dom.firstChild);
@@ -61,6 +60,14 @@
 						var toLocal = document.createElement('a');
 						toLocal.href = 'mailto:dev@knowre.com';
 						toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
+						Polymer.dom(this.root).appendChild(toLocal);
+					} else if (e.detail.result === 'where') {
+						that._appendCmd(cmd);
+
+						var toLocal = document.createElement('a');
+						toLocal.href = 'http://dmaps.kr/23zbu';
+						toLocal.target="_blank";
+						toLocal.innerHTML = '서울 강남구 테헤란로8길 21 (우) 06234(지번) 역삼동 823-14 7층';
 						Polymer.dom(this.root).appendChild(toLocal);
 					} else {
 						that._appendCmd(cmd);

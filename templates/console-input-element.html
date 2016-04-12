@@ -45,7 +45,7 @@
 		</style>
 		<div>
 			<label>Type command : </label>
-			<input value='{{cmdValue::input}}' on-keydown='sendByEnter' maxlength='20' autofocus>
+			<input id='cmdInput' value='{{cmdValue::input}}' on-keydown='sendByEnter' maxlength='20' autofocus>
 			<span class="blink">/</span>
 		</div>
 
@@ -69,6 +69,10 @@
 				this.$$('input').addEventListener('keydown', function(){
 					that._changedBlinkPos();
 				});
+
+				this.$$('input').addEventListener('blur', function(){
+					document.querySelector('#cmdInput').focus();
+				});
 			},
 
 			_changedBlinkPos: function() {
@@ -85,14 +89,10 @@
 				}
 			},
 			sendCmd: function(cmdValue) {
-				//TODO: need to mock Service.
-				console.log('I GOT the '+cmdValue);
-
 				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
 				this.cmdValue = '';
-//				window.scrollTo(0,document.body.scrollHeight);
+
 				var out = document.querySelector('console-output-element');
-				console.log(out);
 				out.scrollTop = out.scrollHeight;
 			}
 
