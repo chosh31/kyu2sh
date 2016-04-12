@@ -18,11 +18,19 @@
         </style>
         <console-output-element></console-output-element>
         <script>
-            var elememtList = ['members', 'companyinfo', 'teaminfo'];
+            var elememtList = ['members', 'knowre', 'team'];
             document.querySelector('console-output-element').addEventListener('fire', function (e) {
                 console.log(e.detail.result); // true
                 if (elememtList.includes(e.detail.result)) {
-                    var node = document.createElement('console-output-'+e.detail.result+'-element');
+                    var domName = e.detail.result;
+                    if(domName === 'knowre'){
+                        domName = 'companyinfo';
+                    }else if(domName === 'team'){
+                        domName = 'teaminfo';
+                    }else if(domName === 'members'){
+                        domName = 'members';
+                    }
+                    var node = document.createElement('console-output-'+domName+'-element');
                     Polymer.dom(this.root).appendChild(node);
                 } else if (e.detail.result === 'clear') {
                     console.log(this.children.length);
