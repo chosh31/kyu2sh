@@ -38,9 +38,14 @@
                     while (dom.firstChild){
                         dom.removeChild(dom.firstChild);
                     }
+                } else if (e.detail.result === 'sendMail') {
+                    var toLocal = document.createElement('a');
+                    toLocal.href = 'mailto:dev@knowre.com';
+                    toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
+                    Polymer.dom(this.root).appendChild(toLocal);
                 } else {
                     var toLocal = document.createElement('div')
-                    toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
+                    toLocal.innerHTML = 'Error command. Sorry Try Again!';
                     Polymer.dom(this.root).appendChild(toLocal);
 
                 }
