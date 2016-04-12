@@ -13,44 +13,9 @@
 				width: 60%;
 				height: 60%;
 				background-color: #EAEAEA;
-				/*outline: 1px solid black;*/
 			}
         </style>
         <console-output-element></console-output-element>
-        <script>
-            var elememtList = ['members', 'knowre', 'team'];
-            document.querySelector('console-output-element').addEventListener('fire', function (e) {
-                console.log(e.detail.result); // true
-                if (elememtList.includes(e.detail.result)) {
-                    var domName = e.detail.result;
-                    if(domName === 'knowre'){
-                        domName = 'companyinfo';
-                    }else if(domName === 'team'){
-                        domName = 'teaminfo';
-                    }else if(domName === 'members'){
-                        domName = 'members';
-                    }
-                    var node = document.createElement('console-output-'+domName+'-element');
-                    Polymer.dom(this.root).appendChild(node);
-                } else if (e.detail.result === 'clear') {
-                    console.log(this.children.length);
-                    var dom  = Polymer.dom(this.root);
-                    while (dom.firstChild){
-                        dom.removeChild(dom.firstChild);
-                    }
-                } else if (e.detail.result === 'sendMail') {
-                    var toLocal = document.createElement('a');
-                    toLocal.href = 'mailto:dev@knowre.com';
-                    toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
-                    Polymer.dom(this.root).appendChild(toLocal);
-                } else {
-                    var toLocal = document.createElement('div')
-                    toLocal.innerHTML = 'Error command. Sorry Try Again!';
-                    Polymer.dom(this.root).appendChild(toLocal);
-
-                }
-            });
-        </script>
         <console-doc-element></console-doc-element>
         <console-input-element></console-input-element>
 
