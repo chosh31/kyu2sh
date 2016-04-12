@@ -18,9 +18,6 @@
 			}
 
 		</style>
-		<!--<console-output-members-element></console-output-members-element>-->
-		<!--<console-output-teaminfo-element></console-output-teaminfo-element>-->
-		<!--<console-output-companyinfo-element></console-output-companyinfo-element>-->
 		<div>Enjoy your Knowre! console-output-element</div>
 	</template>
 
@@ -31,6 +28,54 @@
 
 			properties: {
 
+			},
+
+			ready: function () {
+				var elememtList = ['members', 'knowre', 'team'],
+					that = this;
+
+				this.addEventListener('fire', function (e) {
+					var cmd = e.detail.result;
+					if (elememtList.includes(cmd)) {
+						var domName = cmd;
+						if (domName === 'knowre') {
+							domName = 'companyinfo';
+						} else if (domName === 'team') {
+							domName = 'teaminfo';
+						} else if (domName === 'members') {
+							domName = 'members';
+						}
+						that._appendCmd(cmd);
+
+						var node = document.createElement('console-output-'+domName+'-element');
+						Polymer.dom(this.root).appendChild(node);
+					} else if (cmd === 'clear') {
+						console.log(this.children.length);
+						var dom  = Polymer.dom(this.root);
+						while (dom.firstChild){
+							dom.removeChild(dom.firstChild);
+						}
+					} else if (cmd === 'sendMail') {
+						that._appendCmd(cmd);
+
+						var toLocal = document.createElement('a');
+						toLocal.href = 'mailto:dev@knowre.com';
+						toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
+						Polymer.dom(this.root).appendChild(toLocal);
+					} else {
+						that._appendCmd(cmd);
+
+						var toLocal = document.createElement('div')
+						toLocal.innerHTML = 'Error command. Sorry Try Again!';
+						Polymer.dom(this.root).appendChild(toLocal);
+
+					}
+				});
+			},
+			_appendCmd: function(cmd) {
+				var el = document.createElement('div');
+				el.innerHTML = ' > ' + cmd;
+				Polymer.dom(this.root).appendChild(el);
 			}
 		});
 	</script>
