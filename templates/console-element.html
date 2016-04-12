@@ -12,12 +12,15 @@
 		<script>
 			document.querySelector('console-output-element').addEventListener('fire', function (e) {
 				console.log(e.detail.result); // true
-				if(e.detail.result==='1'){
+				if(e.detail.result==='members'){
+					var node = document.createElement('console-output-members-element');
+					Polymer.dom(this.root).appendChild(node);
 
 				}else{
 					var toLocal = document.createElement('div')
 					toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
 					Polymer.dom(this.root).appendChild(toLocal);
+
 				}
 			});
 		</script>
