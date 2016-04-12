@@ -1,19 +1,52 @@
-<dom-module id="console-output-members-element">
+<dom-module id='console-output-members-element'>
 
 	<template>
 		<style>
+		:host {
+
+		}
+
+		:host .container {
+			background-color: #EAEAEA;
+		}
 
 		</style>
-		console-output-members-element
+		<!-- console-output-members-element -->
+		<pre class='container'>
+
+		</pre>
 	</template>
 
 	<script>
 
 		Polymer({
-			is: "console-output-members-element",
+			is: 'console-output-members-element',
 
 			properties: {
+				members: {
+					type: Array,
+					value: [
+						{
+							name: 'aa',
+							age: 12,
+							hobby: 'programming'
+						},
+						{
+							name: 'bb',
+							age: 15,
+							hobby: 'programming2'
+						},
+						{
+							name: 'cc',
+							age: 17,
+							hobby: 'programming3'
+						}
+					]
+				}
+			},
 
+			ready: function() {
+				this.$$('.container').innerHTML = JSON.stringify(this.members, undefined, 4);
 			}
 		});
 	</script>

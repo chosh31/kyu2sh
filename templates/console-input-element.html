@@ -1,4 +1,4 @@
-<dom-module id="console-input-element">
+<dom-module id='console-input-element'>
 
 	<template>
 		<style>
@@ -8,8 +8,8 @@
 		}
 		</style>
 		<div>
-			<label>Type command : </label><input value="{{cmdValue::input}}" on-keydown="sendByEnter">
-			<button on-tap="sendTap" >SEND</button>
+			<label>Type command : </label><input value='{{cmdValue::input}}' on-keydown='sendByEnter'>
+			<button on-tap='sendTap' >SEND</button>
 		</div>
 
 	</template>
@@ -17,7 +17,7 @@
 	<script>
 
 		Polymer({
-			is: "console-input-element",
+			is: 'console-input-element',
 
 			sendTap: function(e){
 				this.sendCmd(this.cmdValue);
