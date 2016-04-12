@@ -6,13 +6,34 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 25%;
+			width: 30%;
 			height: 100%;
 			background-color: green;
 			color: white;
 		}
+		:host .cmdlist {
+			margin-left: 5px;
+			font-size: 20px;
+		}
+		:host ul {
+			margin-top: 5px;
+			padding-left: 20px;
+		}
+		:host li {
+			margin: 5px;
+			font-size: 15px;
+		}
+
 		</style>
-		<div>console-doc-element</div>
+		<div><span class="cmdlist">cmd list</span>
+			<ul class="doc-ul">
+				<li>members: show members.</li>
+				<li>knowre: show company info.</li>
+				<li>team: show team info.</li>
+				<li>clear: screen clear.</li>
+				<li>sendMail: link dev@knowre.com</li>
+			</ul>
+		</div>
 	</template>
 
 	<script>

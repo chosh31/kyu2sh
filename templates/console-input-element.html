@@ -6,15 +6,20 @@
 			position: absolute;
 			left: 0;
 			bottom: 0;
-			width: 75%;
-			height: 20px;
-			background-color: blue;
+			width: 70%;
+			height: 30px;
+			background-color: #EAEAEA;
 			color: white;
 		}
+		:host input {
+			background-color: #EAEAEA;
+			border: 0;
+			margin: 0;
+		}
+
 		</style>
 		<div>
 			<label>Type command : </label><input value='{{cmdValue::input}}' on-keydown='sendByEnter'>
-			<button on-tap='sendTap' >SEND</button>
 		</div>
 
 	</template>
