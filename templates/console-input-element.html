@@ -6,11 +6,12 @@
 			position: absolute;
 			left: 0;
 			bottom: 0;
-			width: 75%;
-			height: 20px;
+			width: 70%;
+			height: 30px;
+			background-color: #EAEAEA;
 		}
 
-		input {
+		:host input {
 			padding: 0;
 			border: none;
 			max-width: 800px;
@@ -40,10 +41,11 @@
 				opacity: 0;
 			}
 		}
+
 		</style>
 		<div>
 			<label>Type command : </label>
-			<input value='{{cmdValue::input}}' on-keydown='sendByEnter' maxlength='20'>
+			<input value='{{cmdValue::input}}' on-keydown='sendByEnter' maxlength='20' autofocus>
 			<span class="blink">/</span>
 		</div>
 
@@ -88,7 +90,11 @@
 
 				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
 				this.cmdValue = '';
-				window.scrollTo(0,document.body.scrollHeight);
+
+//				window.scrollTo(0,document.body.scrollHeight);
+				var out = document.querySelector('console-output-element');
+				console.log(out);
+				out.scrollTop = out.scrollHeight;
 			}
 
 		});
