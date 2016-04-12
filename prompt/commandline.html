@@ -1,0 +1,28 @@
+<dom-module id="command-line">
+
+    <template>
+        <input value="{{cmdValue::input}}" on-keydown="sendByEnter">
+        <button on-tap="sendTap" >SEND</button>
+    </template>
+
+    <script>
+        Polymer({
+            is: "command-line",
+            sendTap: function(e){
+                this.sendCmd(this.cmdValue);
+            },
+            sendByEnter: function (e) {
+                if (e.keyCode === 13) {
+                    this.sendCmd(this.cmdValue);
+                }
+            },
+            sendCmd: function(cmdValue) {
+                console.log('I GOT the '+cmdValue);
+            },
+            properties: {
+                cmdValue: String,
+            }
+        });
+    </script>
+
+</dom-module>
