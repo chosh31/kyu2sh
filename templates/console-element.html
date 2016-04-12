@@ -4,8 +4,8 @@
 
 <dom-module id='console-element'>
 
-	<template>
-		<style>
+    <template>
+        <style>
 			:host {
 				position: absolute;
 				top: 20%;
@@ -15,38 +15,39 @@
 				background-color: #EAEAEA;
 				/*outline: 1px solid black;*/
 			}
-		</style>
+        </style>
+        <console-output-element></console-output-element>
+        <script>
+            document.querySelector('console-output-element').addEventListener('fire', function (e) {
+                console.log(e.detail.result); // true
+                if (e.detail.result === 'members') {
+                    var node = document.createElement('console-output-members-element');
+                    Polymer.dom(this.root).appendChild(node);
+                } else if (e.detail.result === 'clear') {
+                    console.log(this.children.length);
+                    var dom  = Polymer.dom(this.root);
+                    while (dom.firstChild){
+                        dom.removeChild(dom.firstChild);
+                    }
+                } else {
+                    var toLocal = document.createElement('div')
+                    toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
+                    Polymer.dom(this.root).appendChild(toLocal);
 
-		<console-output-element></console-output-element>
-		<script>
-			document.querySelector('console-output-element').addEventListener('fire', function (e) {
-				console.log(e.detail.result); // true
-				if(e.detail.result==='members'){
-					var node = document.createElement('console-output-members-element');
-					Polymer.dom(this.root).appendChild(node);
+                }
+            });
+        </script>
+        <console-doc-element></console-doc-element>
+        <console-input-element></console-input-element>
 
-				}else{
-					var toLocal = document.createElement('div')
-					toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
-					Polymer.dom(this.root).appendChild(toLocal);
+    </template>
 
-				}
-			});
-		</script>
-		<console-input-element></console-input-element>
-		<console-doc-element></console-doc-element>
+    <script>
 
-	</template>
+        Polymer({
+            is: 'console-element',
 
-	<script>
-
-		Polymer({
-			is: 'console-element',
-
-			properties: {
-
-			}
-		});
-	</script>
-
+            properties: {}
+        });
+    </script>
 </dom-module>

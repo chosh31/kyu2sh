@@ -25,21 +25,93 @@
 					type: Array,
 					value: [
 						{
-							name: 'aa',
+							name: 'Homer',
 							age: 12,
-							hobby: 'programming',
+							'main-part': 'Android Developer',
 							img: faker.image.avatar()
 						},
 						{
-							name: 'bb',
+							name: 'Woomin',
 							age: 15,
-							hobby: 'programming2',
+							'main-part': 'iOS Developer',
 							img: faker.image.avatar()
 						},
 						{
-							name: 'cc',
+							name: 'Kin',
 							age: 17,
-							hobby: 'programming3',
+							'main-part': 'iOS Developer',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'TaeYeon',
+							age: 12,
+							'main-part': 'Android Developer',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'WooSeok',
+							age: 15,
+							'main-part': 'Web Server',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Kyuchang',
+							age: 17,
+							'main-part': 'Web Client',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'WoongKi',
+							age: 12,
+							'main-part': 'iOS Developer',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'JaeWon',
+							age: 15,
+							'main-part': 'Web Client',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Marian',
+							age: 17,
+							'main-part': 'Android Developer',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Seungkun',
+							age: 12,
+							'main-part': 'Web Server',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Seunghun',
+							age: 15,
+							'main-part': 'Web Client',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Seungyun',
+							age: 17,
+							'main-part': 'CTO / Core & DevOps',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Seongjae',
+							age: 12,
+							'main-part': 'Web Server',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Sukkyu',
+							age: 15,
+							'main-part': 'Web Server',
+							img: faker.image.avatar()
+						},
+						{
+							name: 'Sunghwan',
+							age: 17,
+							'main-part': 'Core',
 							img: faker.image.avatar()
 						}
 					]
@@ -54,7 +126,7 @@
 					el = document.createElement('console-output-members-card-element');
 					el.name = m.name;
 					el.age = m.age;
-					el.hobby = m.hobby;
+					el.mainPart = m['main-part'];
 					el.img = m.img;
 					that.$$('.container').appendChild(el);
 				});

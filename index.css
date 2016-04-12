@@ -1,3 +1,8 @@
+html * {
+	font-family: 'courier new', 'courier';
+	font-size: 16px;
+}
+
 html body {
 	position: absolute;
 	margin: 0;
