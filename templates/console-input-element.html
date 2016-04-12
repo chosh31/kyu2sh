@@ -9,17 +9,44 @@
 			width: 70%;
 			height: 30px;
 			background-color: #EAEAEA;
-			color: white;
 		}
+
 		:host input {
-			background-color: #EAEAEA;
-			border: 0;
-			margin: 0;
+			padding: 0;
+			border: none;
+			max-width: 800px;
+			color: transparent;
+			text-shadow: 0px 0px 1px #000;
+			background: transparent;
+			float: none;
+			position: relative;
+			z-index: 9998 !important;
+			outline: none;
+		}
+
+		:host span.blink {
+			color: #000;
+			line-height: 1;
+			animation: blink 500ms infinite alternate;
+			position: absolute;
+			top: 5px;
+			left: 147px;
+		}
+
+		@keyframes blink {
+			from {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+			}
 		}
 
 		</style>
 		<div>
-			<label>Type command : </label><input value='{{cmdValue::input}}' on-keydown='sendByEnter'>
+			<label>Type command : </label>
+			<input value='{{cmdValue::input}}' on-keydown='sendByEnter' maxlength='20' autofocus>
+			<span class="blink">/</span>
 		</div>
 
 	</template>
@@ -28,6 +55,26 @@
 
 		Polymer({
 			is: 'console-input-element',
+
+			properties: {
+				cmdValue: String
+			},
+
+			ready: function() {
+				var that = this;
+				this.$$('input').addEventListener('keyup', function(){
+					that._changedBlinkPos();
+				});
+
+				this.$$('input').addEventListener('keydown', function(){
+					that._changedBlinkPos();
+				});
+			},
+
+			_changedBlinkPos: function() {
+				var that = this;
+				that.$$('.blink').style.left = (147 + (that.$$('input').value.length) * 9.5) + 'px';
+			},
 
 			sendTap: function(e){
 				this.sendCmd(this.cmdValue);
@@ -43,11 +90,10 @@
 
 				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
 				this.cmdValue = '';
-				window.scrollTo(0,document.body.scrollHeight);
-
-			},
-			properties: {
-				cmdValue: String,
+//				window.scrollTo(0,document.body.scrollHeight);
+				var out = document.querySelector('console-output-element');
+				console.log(out);
+				out.scrollTop = out.scrollHeight;
 			}
 
 		});
