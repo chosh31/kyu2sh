@@ -2,9 +2,14 @@
 
 	<template>
 		<style>
-
+		:host .container {
+			background-color: #EAEAEA;
+		}
 		</style>
 		<!-- console-output-companyinfo-element -->
+		<pre class='container'>
+
+		</pre>
 	</template>
 
 	<script>
@@ -13,7 +18,29 @@
 			is: 'console-output-companyinfo-element',
 
 			properties: {
-
+				companyinfo: {
+					type: Object,
+					value: [
+						{
+							name: 'aa',
+							age: 12,
+							hobby: 'programming'
+						},
+						{
+							name: 'bb',
+							age: 15,
+							hobby: 'programming2'
+						},
+						{
+							name: 'cc',
+							age: 17,
+							hobby: 'programming3'
+						}
+					]
+				}
+			},
+			ready: function () {
+				this.$$('.container').innerHTML = JSON.stringify(this.companyinfo, undefined, 4);
 			}
 		});
 	</script>
