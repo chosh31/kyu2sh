@@ -6,12 +6,21 @@
 
 	<template>
 		<style>
+			:host {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 75%;
+				height: 100%;
+				margin: 0;
+				overflow: scroll;
+			}
 
 		</style>
 		<!--<console-output-members-element></console-output-members-element>-->
 		<console-output-teaminfo-element></console-output-teaminfo-element>
 		<console-output-companyinfo-element></console-output-companyinfo-element>
-		<div>console-output-element</div>
+		<div class="output-content">console-output-element</div>
 	</template>
 
 	<script>
