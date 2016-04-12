@@ -18,7 +18,7 @@
 			}
 
 		</style>
-		<div>Enjoy your Knowre! console-output-element</div>
+		<div>Enjoy your Knowre!</div>
 	</template>
 
 	<script>
@@ -50,7 +50,6 @@
 						var node = document.createElement('console-output-'+domName+'-element');
 						Polymer.dom(this.root).appendChild(node);
 					} else if (cmd === 'clear') {
-						console.log(this.children.length);
 						var dom  = Polymer.dom(this.root);
 						while (dom.firstChild){
 							dom.removeChild(dom.firstChild);
