@@ -2,6 +2,15 @@
 
 	<template>
 		<style>
+		:host a:link {
+			color: #aaaaaa;
+    		text-decoration: none;
+		}
+		:host li {
+			display: inline;
+			margin-left: 5px;
+		}
+
 		:host .footer {
 			position: absolute;
 			bottom: 0;
@@ -10,15 +19,29 @@
 			background-color: black;
 			color: #aaaaaa;
 		}
-
-		:host .footer-container {
+		:host .footer-text {
 			position: absolute;
-			top: 10px;
+			top: 20px;
 			left: 30px;
 		}
+		:host .social-icon {
+			position: absolute;
+			top: 5px;
+			left: 300px;
+		}
+
 		</style>
+		<link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
 		<div class="footer">
-			<div class="footer-container">© 2016 Knowre · All Rights Reserved — Math. We'll get you there</div>
+			<div class="footer-text">© 2016 Knowre Development team</div>
+			<div class="social-icon">
+				<ul>
+					<li><a href="https://www.facebook.com/knowre/?fref=ts"  class="socicon-facebook"></a></li>
+					<li><a href="https://www.instagram.com/knowre/" class="socicon-instagram"></a></li>
+					<li><a href="https://www.linkedin.com/company/knowre?trk=company_logo" class="socicon-linkedin"></a></li>
+					<li><a href="https://twitter.com/knowre?lang=en" class="socicon-twitter"></a></li>
+				</ul>
+			</div>
 		</div>
 	</template>
 
