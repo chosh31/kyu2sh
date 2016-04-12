@@ -63,6 +63,8 @@
 						toLocal.innerHTML = 'Welcome to Knowre! : dev@knowre.com';
 						Polymer.dom(this.root).appendChild(toLocal);
 					} else if (e.detail.result === 'where') {
+						that._appendCmd(cmd);
+
 						var toLocal = document.createElement('a');
 						toLocal.href = 'http://dmaps.kr/23zbu';
 						toLocal.target="_blank";
