@@ -1,33 +1,47 @@
-<link rel="import" href="console-input-element.html">
-<link rel="import" href="console-output-element.html">
-<link rel="import" href="console-doc-element.html">
+<link rel='import' href='console-input-element.html'>
+<link rel='import' href='console-output-element.html'>
+<link rel='import' href='console-doc-element.html'>
 
-<dom-module id="console-element">
+<dom-module id='console-element'>
 
 	<template>
 		<style>
-			:host div {
+			:host {
 				position: absolute;
-				/*left: 0;*/
-				top: 200px;
-				width: 800px;
-				height: 200px;
+				top: 20%;
+				left: 20%;
+				width: 60%;
+				height: 60%;
 				outline: 1px solid black;
-				/*margin: 0, auto;*/
 
 			}
 		</style>
-		<div>
-			<console-output-element></console-output-element>
-			<console-input-element></console-input-element>
-			<console-doc-element></console-doc-element>
-		</div>
+
+		<console-output-element></console-output-element>
+		<script>
+			document.querySelector('console-output-element').addEventListener('fire', function (e) {
+				console.log(e.detail.result); // true
+				if(e.detail.result==='members'){
+					var node = document.createElement('console-output-members-element');
+					Polymer.dom(this.root).appendChild(node);
+
+				}else{
+					var toLocal = document.createElement('div')
+					toLocal.innerHTML = 'Error CoMM4ND. Sorry Try Again!';
+					Polymer.dom(this.root).appendChild(toLocal);
+
+				}
+			});
+		</script>
+		<console-input-element></console-input-element>
+		<console-doc-element></console-doc-element>
+
 	</template>
 
 	<script>
 
 		Polymer({
-			is: "console-element",
+			is: 'console-element',
 
 			properties: {
 

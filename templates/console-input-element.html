@@ -1,11 +1,10 @@
-<dom-module id="console-input-element">
+<dom-module id='console-input-element'>
 
 	<template>
 		<style>
 		:host div {
 			position: absolute;
 			left: 0;
-			right: 200px;
 			bottom: 0;
 			width: 100%;
 			height: 20px;
@@ -13,17 +12,38 @@
 			color: white;
 		}
 		</style>
-		<div>console-input-element</div>
+		<div>
+			<label>Type command : </label><input value='{{cmdValue::input}}' on-keydown='sendByEnter'>
+			<button on-tap='sendTap' >SEND</button>
+		</div>
+
 	</template>
 
 	<script>
 
 		Polymer({
-			is: "console-input-element",
+			is: 'console-input-element',
 
+			sendTap: function(e){
+				this.sendCmd(this.cmdValue);
+			},
+			sendByEnter: function (e) {
+				if (e.keyCode === 13) {
+					this.sendCmd(this.cmdValue);
+				}
+			},
+			sendCmd: function(cmdValue) {
+				//TODO: need to mock Service.
+				console.log('I GOT the '+cmdValue);
+
+				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
+				this.cmdValue = '';
+				window.scrollTo(0,document.body.scrollHeight);
+			},
 			properties: {
-
+				cmdValue: String,
 			}
+
 		});
 	</script>
 
