@@ -1,0 +1,44 @@
+<dom-module id='console-output-members-card-element'>
+
+	<template>
+		<style>
+		:host {
+
+		}
+
+		:host .container {
+			display: inline-block;
+			border: 1px solid #EEEEEE;
+			background-color: #EAEAEA;
+			width: 49%;
+		}
+
+		</style>
+		<!-- console-output-members-card-element -->
+		<div class='container'>
+			<div><img src={{img}}></div>
+			<div>{{name}}</div>
+			<div>{{age}}</div>
+			<div>{{hobby}}</div>
+		</div>
+	</template>
+
+	<script>
+
+		Polymer({
+			is: 'console-output-members-card-element',
+
+			properties: {
+				img: String,
+				name: String,
+				age: Number,
+				hobby: String
+			},
+
+			ready: function() {
+				
+			}
+		});
+	</script>
+
+</dom-module>

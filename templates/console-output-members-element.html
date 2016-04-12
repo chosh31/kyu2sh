@@ -1,3 +1,5 @@
+<link rel='import' href='console-output-members-card-element.html'>
+
 <dom-module id='console-output-members-element'>
 
 	<template>
@@ -6,15 +8,11 @@
 
 		}
 
-		:host .container {
-			background-color: #EAEAEA;
-		}
-
 		</style>
 		<!-- console-output-members-element -->
-		<pre class='container'>
+		<div class='container'>
 
-		</pre>
+		</div>
 	</template>
 
 	<script>
@@ -29,24 +27,39 @@
 						{
 							name: 'aa',
 							age: 12,
-							hobby: 'programming'
+							hobby: 'programming',
+							img: faker.image.avatar()
 						},
 						{
 							name: 'bb',
 							age: 15,
-							hobby: 'programming2'
+							hobby: 'programming2',
+							img: faker.image.avatar()
 						},
 						{
 							name: 'cc',
 							age: 17,
-							hobby: 'programming3'
+							hobby: 'programming3',
+							img: faker.image.avatar()
 						}
 					]
 				}
 			},
 
 			ready: function() {
-				this.$$('.container').innerHTML = JSON.stringify(this.members, undefined, 4);
+				var that = this,
+					el;
+
+				this.members.forEach(function(m) {
+					el = document.createElement('console-output-members-card-element');
+					el.name = m.name;
+					el.age = m.age;
+					el.hobby = m.hobby;
+					el.img = m.img;
+					that.$$('.container').appendChild(el);
+				});
+				
+
 			}
 		});
 	</script>

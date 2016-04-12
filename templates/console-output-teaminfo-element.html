@@ -2,9 +2,18 @@
 
 	<template>
 		<style>
+		:host {
 
+		}
+
+		:host .container {
+			background-color: #EAEAEA;
+		}
 		</style>
 		<!-- console-output-teaminfo-element -->
+		<pre class='container'>
+
+		</pre>
 	</template>
 
 	<script>
@@ -13,7 +22,29 @@
 			is: 'console-output-teaminfo-element',
 
 			properties: {
-
+				teaminfo: {
+					type: Object,
+					value: [
+						{
+							name: 'aa',
+							age: 12,
+							hobby: 'programming'
+						},
+						{
+							name: 'bb',
+							age: 15,
+							hobby: 'programming2'
+						},
+						{
+							name: 'cc',
+							age: 17,
+							hobby: 'programming3'
+						}
+					]
+				}
+			},
+			ready: function () {
+				this.$$('.container').innerHTML = JSON.stringify(this.teaminfo, undefined, 4);
 			}
 		});
 	</script>
