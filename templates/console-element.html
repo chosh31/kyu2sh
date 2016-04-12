@@ -6,11 +6,22 @@
 
 	<template>
 		<style>
+			:host div {
+				position: absolute;
+				/*left: 0;*/
+				top: 200px;
+				width: 800px;
+				height: 200px;
+				outline: 1px solid black;
+				/*margin: 0, auto;*/
 
+			}
 		</style>
-		<console-output-element></console-output-element>
-		<console-doc-element></console-doc-element>
-		<console-input-element></console-input-element>
+		<div>
+			<console-output-element></console-output-element>
+			<console-input-element></console-input-element>
+			<console-doc-element></console-doc-element>
+		</div>
 	</template>
 
 	<script>
