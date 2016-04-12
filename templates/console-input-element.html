@@ -7,7 +7,11 @@
 			color: white;
 		}
 		</style>
-		<div>console-input-element</div>
+		<div>
+			<label>Type command : </label><input value="{{cmdValue::input}}" on-keydown="sendByEnter">
+			<button on-tap="sendTap" >SEND</button>
+		</div>
+
 	</template>
 
 	<script>
@@ -15,9 +19,24 @@
 		Polymer({
 			is: "console-input-element",
 
-			properties: {
+			sendTap: function(e){
+				this.sendCmd(this.cmdValue);
+			},
+			sendByEnter: function (e) {
+				if (e.keyCode === 13) {
+					this.sendCmd(this.cmdValue);
+				}
+			},
+			sendCmd: function(cmdValue) {
+				//TODO: need to mock Service.
+				console.log('I GOT the '+cmdValue);
 
+				document.querySelector('console-output-element').fire('fire', {result: cmdValue});
+			},
+			properties: {
+				cmdValue: String,
 			}
+
 		});
 	</script>
 

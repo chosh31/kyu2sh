@@ -9,6 +9,11 @@
 
 		</style>
 		<console-output-element></console-output-element>
+		<script>
+			document.querySelector('console-output-element').addEventListener('fire', function (e) {
+				console.log(e.detail.result); // true
+			});
+		</script>
 		<console-doc-element></console-doc-element>
 		<console-input-element></console-input-element>
 	</template>
