@@ -20,23 +20,17 @@
 			properties: {
 				companyinfo: {
 					type: Object,
-					value: [
-						{
-							name: 'aa',
-							age: 12,
-							hobby: 'programming'
-						},
-						{
-							name: 'bb',
-							age: 15,
-							hobby: 'programming2'
-						},
-						{
-							name: 'cc',
-							age: 17,
-							hobby: 'programming3'
+					value: {
+						name: 'company-info',
+						value: {
+							address: {
+								'US': '115 West 18th Street, Floor 2 New York, NY 10011',
+								'KR': '7th Fl, 21, Teheran-ro 8-gil Gangnam-gu, Seoul'
+							},
+							'e-mail': 'dev@knowre.com',
+							'business-area': ['US', 'CN', 'KR']
 						}
-					]
+					}
 				}
 			},
 			ready: function () {
